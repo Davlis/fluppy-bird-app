@@ -1,0 +1,12 @@
+{
+  "name": "phaser-typescript-express-template",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "@orange-games/phaser-input": "^2.0.5"
+  }
+}
