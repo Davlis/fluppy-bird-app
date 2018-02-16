@@ -32,8 +32,8 @@ module FruitBird {
 		}
 
 		setAudio() {
-			//this.music = this.add.audio('level_1', 1, true);
-			//this.music.play();
+			this.music = this.add.audio('level_1', 1, true);
+			this.music.play();
 		}
 
 		addFlapper() {
@@ -108,7 +108,7 @@ module FruitBird {
 		}
 
 		goToScoreBoard() {
-			//this.music.destroy();
+			this.music.destroy();
 			this.state.start('ScoreBoard', true, false, +this.labelScore.text);
 		}
 	}
