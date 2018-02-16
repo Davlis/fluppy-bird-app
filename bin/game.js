@@ -206,8 +206,8 @@ var FruitBird;
             this.time.events.loop(FruitBird.REWARD_SPAWN_IN_MS, this.addReward, this);
         };
         Level1.prototype.addPipes = function () {
-            this.addPipe(Math.random() * 400 + 400, Math.random() * 300);
-            this.addPipe(Math.random() * 400 + 400, Math.random() * 300 + 300);
+            this.addPipe(this.game.world.width, Math.random() * 300);
+            this.addPipe(this.game.world.width, Math.random() * 300 + 300);
         };
         Level1.prototype.addReward = function () {
             var reward = new FruitBird.Apple(this.game, Math.random() * this.game.width, Math.random() * this.game.height);
@@ -248,7 +248,7 @@ var FruitBird;
         };
         Level1.prototype.goToScoreBoard = function () {
             this.music.destroy();
-            this.state.start('ScoreBoard', true, false, +this.labelScore.text);
+            this.game.state.start('ScoreBoard', true, false, +this.labelScore.text);
         };
         return Level1;
     }(Phaser.State));

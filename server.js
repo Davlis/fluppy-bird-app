@@ -44,7 +44,7 @@ app.get('/', function(req, res, next) {
 
 app.get('/stats', function(req, res, next) {
 
-  https.get(API_URL+'/stats', function(res) {
+  https.get(API_URL+'stats', function(res) {
 
       var body = '';
 

@@ -57,8 +57,8 @@ module FruitBird {
 		}
 
 		addPipes() {
-			this.addPipe(Math.random() * 400 + 400, Math.random() * 300);
-			this.addPipe(Math.random() * 400 + 400, Math.random() * 300 + 300);
+			this.addPipe(this.game.world.width, Math.random() * 300);
+			this.addPipe(this.game.world.width, Math.random() * 300 + 300);
 		}
 
 		addReward() {
@@ -109,7 +109,7 @@ module FruitBird {
 
 		goToScoreBoard() {
 			this.music.destroy();
-			this.state.start('ScoreBoard', true, false, +this.labelScore.text);
+			this.game.state.start('ScoreBoard', true, false, +this.labelScore.text);
 		}
 	}
 }
