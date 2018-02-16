@@ -4,9 +4,12 @@ var app = express();
 var exec = require('child_process').exec;
 
 var fs = require('fs');
+var https = require('https');
+
+const API_URL = process.env.API_URL || 'http://localhost:3000';
 
 fs.writeFile('env.json', JSON.stringify({
-  API_URL: process.env.API_URL || 'http://localhost:3000',  
+  API_URL,
 }), function (err) {
   if (err) {
     throw err;
@@ -37,6 +40,25 @@ app.use('/env', express.static(path.join(__dirname)));
 
 app.get('/', function(req, res, next) {
   res.status(200).sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/stats', function(req, res, next) {
+
+  https.get(API_URL+'/stats', function(res) {
+
+      var body = '';
+
+      res.on('data', function(chunk) {
+          console.log(chunk);
+          body += chunk;
+      });
+
+      res.on('end', function(data) {
+        res.send(data);
+      });
+  }).on('error', function(e){
+      console.log("Got an error: ", e);
+  });
 });
 
 const port = process.env.PORT || 4200;
