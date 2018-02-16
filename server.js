@@ -39,6 +39,8 @@ app.get('/', function(req, res, next) {
   res.status(200).sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(4200, function() {
-    console.log('Server started on port 4200!');
+const port = process.env.PORT || 4200;
+
+app.listen(port, function() {
+  console.log(`Server started on port ${port}!`);
 });

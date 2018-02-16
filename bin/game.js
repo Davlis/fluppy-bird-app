@@ -186,6 +186,8 @@ var FruitBird;
             this.stage.backgroundColor = 'rgba(68, 136, 170, 0.5)';
         };
         Level1.prototype.setAudio = function () {
+            this.music = this.add.audio('level_1', 1, true);
+            this.music.play();
         };
         Level1.prototype.addFlapper = function () {
             this.flapper = new FruitBird.Flapper(this.game, 100, 245);
@@ -245,6 +247,7 @@ var FruitBird;
             this.labelScore.text = "" + (parsedScore + score);
         };
         Level1.prototype.goToScoreBoard = function () {
+            this.music.destroy();
             this.state.start('ScoreBoard', true, false, +this.labelScore.text);
         };
         return Level1;
