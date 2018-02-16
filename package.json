@@ -4,9 +4,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "latest",
-    "typescript": "latest"
-  },
-  "devDependencies": {
+    "typescript": "latest",
     "@orange-games/phaser-input": "^2.0.5"
   }
 }
